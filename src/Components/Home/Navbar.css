@@ -1,0 +1,123 @@
+.navbar {
+   position: relative;
+
+   z-index: 1000;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 900px;
+
+}
+/* Navbar IG Logo */
+
+.navbar__Logo img {
+   width: calc(1vw + 5rem);
+   padding-top: 10px;
+}
+/* Navbar Search Box */
+.navbar__Search {
+   display: flex;
+   align-items: center;
+   background: #efefef;
+   color: #000;
+   position: relative;
+   border-radius: 10px;
+   padding: 4px 0px;
+   width: 20vw;
+
+   margin-left: 3vw;
+   outline: none;
+   cursor: pointer;
+}
+
+.fa-magnifying-glass {
+   position: absolute;
+   left: 3%;
+   color: #8e8e8e;
+   font-size: calc(0.3vw + 0.6rem);
+}
+
+.navbar__SearchInput {
+   display: flex;
+   padding: 8px 10px 8px 2rem;
+   align-items: center;
+
+   width: 100%;
+   outline: none;
+   border: none;
+   background: transparent;
+   font-size: calc(0.3vw + 0.6rem);
+}
+
+.navbar__SearchInput::-webkit-input-placeholder {
+   color: #949395;
+   font-size: calc(0.3vw + 0.6rem);
+}
+.navbar__SearchInput:-moz-placeholder {
+   color: #949395;
+   font-size: calc(0.3vw + 0.6rem);
+   opacity: 1;
+}
+.navbar__SearchInput::-moz-placeholder {
+   color: #949395;
+   font-size: calc(0.3vw + 0.6rem);
+   opacity: 1;
+}
+.navbar__SearchInput:-ms-input-placeholder {
+   color: #949395;
+   font-size: calc(0.3vw + 0.6rem);
+}
+.navbar__SearchInput::-ms-input-placeholder {
+   color: #949395;
+   font-size: calc(0.3vw + 0.6rem);
+}
+.navbar__SearchInput::placeholder {
+   color: #949395;
+   font-size: calc(0.3vw + 0.6rem);
+}
+
+/* Navbar Quick Links */
+.Navbar__quickLinks {
+   display: flex;
+   align-items: center;
+}
+.Navbar__quickLinks > a > div {
+}
+.Navbar__quickLinks a:not(:last-child) div img {
+   margin: calc(0.5vw + 0.1rem);
+   width: calc(0.7vw + 1rem);
+}
+
+/* 1: Home  */
+
+/* 2: Direct  */
+
+/* 3: Post  */
+/* .Post {
+   width: 100%;
+} */
+/* .postIcon {
+   width: calc(1vw + 1rem);
+   width: 24px;
+} */
+
+/* 4: Explore  */
+
+/* 5: LikesComments  */
+
+/* 6: Profile  */
+.Profile {
+   border-radius: 100px;
+   border: 1px solid black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: calc(2vw + 1rem) !important;
+   width: auto !important;
+}
+
+.Profile img {
+   height: 40px;
+   width: 39px;
+   border-radius: 100%;
+}
