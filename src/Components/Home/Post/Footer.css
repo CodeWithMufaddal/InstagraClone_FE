@@ -1,0 +1,285 @@
+/* Post Footer */
+.postFooter {
+   background: #fff;
+   pointer-events: auto;
+
+   display: flex;
+   align-items: stretch;
+   flex-direction: column;
+
+   position: relative;
+}
+
+.postFooterContainer {
+   min-width: 335px;
+   width: 100%;
+
+   display: flex;
+   align-items: stretch;
+   flex-direction: column;
+
+   position: relative;
+
+   background: rgb(250, 250, 250);
+   pointer-events: auto;
+}
+
+.postlikeCommentsShareSave {
+   padding: 8px 16px;
+   display: flex;
+   flex-shrink: 0;
+   position: relative;
+   align-items: stretch;
+}
+
+.postFooterTopIcon {
+   display: flex;
+   flex-direction: column;
+   padding: auto;
+
+   background: rgb(250, 250, 250);
+   pointer-events: auto;
+}
+
+.postLinkbtn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   background: transparent;
+   cursor: pointer;
+   padding: 8px;
+}
+
+.PostLikediv {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.PostLikediv-a {
+   /* grey */
+   display: none;
+}
+
+.postLinkbtn:hover .PostLikediv-a {
+   /* grey */
+   display: block;
+}
+
+.PostLikediv-b {
+   /* black */
+   display: block;
+}
+
+.postLinkbtn:hover .PostLikediv-b {
+   /* black */
+   display: none;
+}
+
+.postLinkbtn span {
+   animation-duration: 0.45s;
+   animation-name: like-button-animation;
+   animation-timing-function: ease-in-out;
+   transform: scale(1);
+   color: rgb(38, 38, 38);
+   background: rgb(250, 250, 250);
+}
+
+@keyframes like-button-animation {
+   0% {
+      transform: scale(1);
+   }
+   25% {
+      transform: scale(1.2);
+   }
+   50% {
+      transform: scale(0.95);
+   }
+   100% {
+      transform: scale(1);
+   }
+}
+
+.postLinkbtn span svg {
+   display: block;
+   position: relative;
+}
+
+.postBookmark {
+   display: inline-block;
+   margin-left: auto;
+   margin-right: -10px;
+}
+
+/* postlikesCount */
+.postlikesCount {
+   padding: 0 16px;
+   margin-bottom: 8px;
+   font-size: 14px;
+
+   display: flex;
+   flex-direction: row;
+}
+
+.postlikesCount > div {
+   flex: 1 1 auto;
+   min-height: 0;
+   min-width: 0;
+   margin: auto;
+   display: block;
+   color: rgb(38, 38, 38);
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 18px;
+}
+
+.postlikesCountLink {
+   -webkit-tap-highlight-color: transparent;
+   cursor: pointer;
+   display: inline;
+   text-align: inherit;
+   background: transparent;
+   touch-action: manipulation;
+   margin: -3px 0 -4px;
+
+   color: rgb(0, 55, 107);
+}
+
+.postlikesCountLink > div {
+   display: inline !important;
+   margin: 0 !important;
+   display: block;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   color: rgb(38, 38, 38);
+   font-weight: 600;
+   font-size: 14px !important;
+   line-height: 18px;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+/* View Comments */
+.ShowComments {
+   padding: 0 16px;
+   font-size: 14px;
+}
+
+.viewAllComments {
+   margin-bottom: 4px;
+
+   display: flex;
+   flex-direction: column;
+   flex: 0 0 auto;
+   justify-content: flex-start;
+   align-items: stretch;
+   align-content: stretch;
+}
+
+.viewAllCommentsLinkdiv {
+   color: rgb(142, 142, 142) !important;
+   display: block;
+   font-weight: 400 !important;
+   font-size: 14px;
+   line-height: 18px;
+}
+
+/* Time Ago Container */
+
+.timeAgoContainer {
+   padding-left: 16px;
+   margin-bottom: 16px;
+}
+
+.timeAgoLink {
+   text-transform: uppercase;
+   display: block;
+   color: rgb(38, 38, 38);
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 18px;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.timeAgoDiv {
+   display: inline !important;
+   color: rgb(142, 142, 142);
+   font-weight: 400;
+   font-size: 10px;
+   line-height: 12px;
+}
+
+.timeAgo {
+   letter-spacing: 0.2px;
+}
+
+/* Add Comments */
+.addComment {
+   padding: 6px 16px;
+   border-top: 1px solid rgb(239, 239, 239);
+
+   color: rgb(142, 142, 142);
+   font-size: 14px;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   line-height: 18px;
+
+   position: relative;
+
+   pointer-events: auto;
+}
+
+.addCommentDiv {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   flex-shrink: 0;
+}
+
+.addCommentForm {
+   align-items: center;
+   display: flex;
+   flex-direction: row;
+   flex-grow: 1;
+   flex-shrink: 1;
+   position: relative;
+}
+
+/* emoji */
+
+.addCommentemoji {
+   padding: 8px 16px 8px 0;
+}
+
+/* Text Area */
+
+.addCommentFormTextarea {
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+   background: none;
+   color: rgb(38, 38, 38);
+
+   display: flex;
+   flex-grow: 1;
+
+   font-size: inherit;
+
+   width: 0;
+   height: 18px;
+   max-height: 80px;
+
+   resize: none;
+}
+
+.addCommentFormSubmitbtn {
+   padding: 8px;
+   background: none;
+}
+
+.addCommentFormSubmitbtnDisabled {
+   pointer-events: none;
+   opacity: 0.4;
+}

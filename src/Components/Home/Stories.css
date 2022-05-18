@@ -1,0 +1,98 @@
+.StoriesContainer {
+   padding-top: calc(5vh + 5rem);
+   margin-bottom: 25px;
+}
+
+.userStories {
+   margin: 0 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.storiesbtn {
+   background: transparent;
+}
+
+.Storieprofile {
+   width: 65px;
+   height: 65px;
+   margin: 5px auto;
+
+   position: relative;
+   padding: 1.3px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   background: linear-gradient(200deg, #8a3ab9, #cd486b, #fccc63);
+   border-radius: 50%;
+}
+
+.Storieprofile span {
+   display: flex;
+   padding: 1.7px;
+   margin: 0.5px;
+   background: #fff;
+   border-radius: 50%;
+   position: relative;
+}
+
+.storieprofilePic {
+   width: 100%;
+   border-radius: 50%;
+}
+
+/* ********* Hide ScrollBar *********** */
+
+.react-horizontal-scrolling-menu--wrapper {
+   border-radius: 4px;
+   border: 1px solid rgb(219, 219, 219);
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+   height: 120px;
+   margin: auto;
+   align-items: center;
+
+   position: relative;
+   z-index: 100;
+}
+
+/* ********* Hide ScrollBar *********** */
+
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+   display: none;
+}
+
+.react-horizontal-scrolling-menu--scroll-container {
+   -ms-overflow-style: none; /* IE and Edge */
+   scrollbar-width: none; /* Firefox */
+   position: relative;
+}
+
+.arrowbtn {
+   cursor: pointer;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   right: 1%;
+   user-select: none;
+   position: absolute;
+}
+
+.arrowbtn:first-child {
+   left: 0;
+   z-index: 1;
+   background: url("https://static.cdninstagram.com/rsrc.php/v3/yO/r/mhNDSKlDQma.png") no-repeat -379px -128px;
+   height: 45px;
+   width: 45px;
+}
+.arrowbtn:last-child {
+   z-index: 1;
+   right: 0;
+   background: url("https://static.cdninstagram.com/rsrc.php/v3/yO/r/mhNDSKlDQma.png") no-repeat -244px -107px;
+   height: 45px;
+   width: 45px;
+}

@@ -1,52 +1,84 @@
 .navbar {
-   position: relative;
-
-   z-index: 1000;
    display: flex;
-   justify-content: space-between;
    align-items: center;
-   width: 900px;
+   justify-content: space-between;
 
+   padding: 0.8rem;
+
+   height: inherit;
 }
 /* Navbar IG Logo */
-
-.navbar__Logo img {
-   width: calc(1vw + 5rem);
-   padding-top: 10px;
+.navbar__Logo {
+   display: flex;
+   flex: 1 0 127px;
 }
+
+.igIconLink {
+   display: flex;
+}
+
+.igIconContainer {
+   display: flex;
+   flex: 0 0 auto;
+   justify-content: flex-start;
+   align-items: center;
+}
+.igIconInner {
+   display: flex;
+   margin-top: 7px;
+   transition: opacity 0.1s ease-out;
+}
+.igIcon {
+   background: url("https://static.cdninstagram.com/rsrc.php/v3/yy/r/BmKQv9dlVyA.png") no-repeat 0 -304px;
+   background-size: 208px 882px;
+   display: inline-block;
+
+   width: 102px;
+   height: 30px;
+}
+
 /* Navbar Search Box */
 .navbar__Search {
-   display: flex;
-   align-items: center;
-   background: #efefef;
    color: #000;
-   position: relative;
-   border-radius: 10px;
-   padding: 4px 0px;
-   width: 20vw;
+   background: #efefef;
+   border-radius: 8px;
 
-   margin-left: 3vw;
-   outline: none;
-   cursor: pointer;
+   display: flex;
+   flex: 0 1 auto;
+   align-items: center;
+   justify-content: center;
+   min-width: 125px;
+   width: 268px;
+   height: 36px;
+
+   position: relative;
 }
 
-.fa-magnifying-glass {
-   position: absolute;
-   left: 3%;
-   color: #8e8e8e;
-   font-size: calc(0.3vw + 0.6rem);
+.navbarSearchIcon {
+   padding: 3 16px;
+   align-items: center;
+   display: flex;
+}
+.navbarSearchIcon svg {
+   /* margin-right: 12px; */
 }
 
 .navbar__SearchInput {
    display: flex;
-   padding: 8px 10px 8px 2rem;
+   padding: 3px 16px;
    align-items: center;
 
+   -webkit-appearance: none;
+
+   background: rgb(239, 239, 239);
+   font-size: 16px;
+
+   color: rgb(38, 38, 38);
+   z-index: 2;
+
+   border-radius: 8px;
+   height: 100%;
    width: 100%;
-   outline: none;
-   border: none;
-   background: transparent;
-   font-size: calc(0.3vw + 0.6rem);
 }
 
 .navbar__SearchInput::-webkit-input-placeholder {
@@ -78,14 +110,28 @@
 
 /* Navbar Quick Links */
 .Navbar__quickLinks {
+   flex: 1 0 127px;
+
    display: flex;
+   justify-content: flex-end;
+   align-content: center;
    align-items: center;
+   flex-wrap: wrap;
+
+   position: relative;
 }
-.Navbar__quickLinks > a > div {
+
+.Navbar__quickLinksInner {
+   display: flex;
+   flex-direction: row;
+   padding-left: 24px;
+   white-space: nowrap;
+
+   position: relative;
 }
-.Navbar__quickLinks a:not(:last-child) div img {
-   margin: calc(0.5vw + 0.1rem);
-   width: calc(0.7vw + 1rem);
+
+.Navbar__quickLinks a:not(:first-child) {
+   margin-left: 22px;
 }
 
 /* 1: Home  */
@@ -107,17 +153,35 @@
 
 /* 6: Profile  */
 .Profile {
-   border-radius: 100px;
    border: 1px solid black;
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
-   font-size: calc(2vw + 1rem) !important;
-   width: auto !important;
+
+   width: 28px;
+   height: 28px;
+
+   border-radius: 50%;
+
+   position: relative;
+   cursor: pointer;
+   clip-path: circle(12.5px at center center);
+   z-index: 10;
 }
 
 .Profile img {
-   height: 40px;
-   width: 39px;
-   border-radius: 100%;
+   z-index: -10;
+   width: 100%;
+   height: 100%;
+   vertical-align: middle;
+}
+
+.profileLink:active {
+   border: 1px solid black;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   vertical-align: center;
 }

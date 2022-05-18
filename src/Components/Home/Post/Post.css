@@ -1,0 +1,129 @@
+.post {
+   background: rgb(255, 255, 255);
+
+   border-radius: 3px;
+   background: rgb(255, 255, 255);
+   border: 1px solid rgb(219, 219, 219);
+
+   margin-bottom: 24px;
+
+   position: relative;
+
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   flex-shrink: 0;
+}
+
+.postBox {
+   max-width: inherit;
+   max-height: inherit;
+
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   align-content: stretch;
+   flex: 0 0 auto;
+   justify-content: center;
+
+   position: relative;
+}
+
+/* Post Upper */
+.postUpperContainer {
+   background: rgb(255, 255, 255);
+   border-bottom: 1px solid rgb(239, 239, 239);
+
+   display: flex;
+
+   position: relative;
+}
+
+.postUpper {
+   display: flex;
+   flex-grow: 2;
+
+   justify-content: space-between;
+
+   position: relative;
+}
+
+.postUpperHeader {
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   flex-grow: 2;
+   /* flex: 1; */
+   flex-shrink: 1;
+
+   padding: 14px 4px 14px 16px;
+
+   position: relative;
+   width: 100%;
+}
+
+/* post Upper Username */
+
+.postUpperUsername {
+   display: flex;
+   align-items: flex-start;
+   flex-grow: 1;
+   flex-shrink: 1;
+   overflow: hidden;
+   position: relative;
+   margin-left: 12px;
+}
+
+.postUpperUsernameSpan {
+   display: inline;
+   position: relative;
+}
+
+.postUpperUsernameLink {
+   color: rgb(38, 38, 38);
+   position: relative;
+   background-color: transparent;
+
+   -webkit-appearance: none;
+   background: none;
+   box-sizing: border-box;
+   cursor: pointer;
+   display: block;
+
+   font-size: 14px;
+   font-weight: 600;
+   padding: 5px 9px;
+   text-align: center;
+   text-overflow: ellipsis;
+   text-transform: inherit;
+   user-select: none;
+   -webkit-user-select: none;
+   width: auto;
+}
+
+.postUppermenubtn {
+   display: flex;
+   align-items: center;
+   position: relative;
+   margin-left: 12px;
+   padding: 0 10px;
+   font-size: 14px;
+   font-weight: 600;
+   background-color: transparent;
+   color: rgb(38, 38, 38);
+   white-space: nowrap;
+
+   cursor: pointer;
+}
+
+/* Post Middel */
+
+.postMiddel__image {
+   height: fit-content;
+   width: fit-content;
+}
+
+.postMiddel__image img {
+   height: 100%;
+   width: 100%;
+}
