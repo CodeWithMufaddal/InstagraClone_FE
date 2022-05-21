@@ -94,7 +94,7 @@ const Footer = () => {
             <div className="timeAgoContainer _a3gq">
                <a href="" className="timeAgoLink">
                   <div className="timeAgoDiv">
-                     <time className="timeAgo" datetime="2022-05-17T11:14:25.000Z" title="may 17, 2022" >1 hour ago</time>
+                     <time className="timeAgo" dateTime="2022-05-17T11:14:25.000Z" title="may 17, 2022" >1 hour ago</time>
                   </div>
                </a>
             </div>
@@ -113,7 +113,7 @@ const Footer = () => {
                         <div className=""></div>
                      </div>
                      <textarea aria-label="Add a Comment..." placeholder="Add a Comment..."
-                        autocomplete="off" autocorrect="off" name="" id="" className="addCommentFormTextarea"  >
+                        autoComplete="off" autoCorrect="off" name="" id="" className="addCommentFormTextarea"  >
 
                      </textarea>
                      <button type="submit" className="addCommentFormSubmitbtn " disabled >

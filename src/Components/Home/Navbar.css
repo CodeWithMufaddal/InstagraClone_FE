@@ -74,7 +74,7 @@
    font-size: 16px;
 
    color: rgb(38, 38, 38);
-   z-index: 2;
+   z-index: var(--z-index-3);
 
    border-radius: 8px;
    height: 100%;
@@ -130,8 +130,9 @@
    position: relative;
 }
 
-.Navbar__quickLinks a:not(:first-child) {
-   margin-left: 22px;
+.NavIconcontainer:not(:first-child),
+.profileLink {
+   margin-left: 22px !important;
 }
 
 /* 1: Home  */
@@ -161,13 +162,12 @@
 
    width: 28px;
    height: 28px;
-
    border-radius: 50%;
 
    position: relative;
    cursor: pointer;
    clip-path: circle(12.5px at center center);
-   z-index: 10;
+   z-index: var(--z-index-3);
 }
 
 .Profile img {
@@ -177,11 +177,74 @@
    vertical-align: middle;
 }
 
-.profileLink:active {
+.profileLink {
    border: 1px solid black;
    border-radius: 50%;
    display: flex;
    align-items: center;
    justify-content: center;
    vertical-align: center;
+}
+
+.profileLink {
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+
+   border: 1px solid transparent;
+   background-color: transparent;
+   position: relative;
+}
+
+.profileLink:focus {
+   border: 1px solid black;
+}
+
+.toggleProfileOpt {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   border: 1px solid rgb(219, 219, 219);
+   background-color: rgb(255, 255, 255);
+   border-radius: 4px;
+   padding: 15px;
+   width: 127px;
+   height: 100px;
+   z-index: 10;
+}
+
+/* Profile Option */
+
+.profileDropdownIcon {
+   display: flex;
+   flex: 0 0 auto;
+
+   justify-content: flex-start;
+   flex-direction: column;
+   align-items: stretch;
+   align-content: stretch;
+
+   margin-right: calc(4px * 3);
+
+   cursor: pointer;
+}
+
+.profileDropdownInner {
+   display: flex;
+
+   flex: 1 1 auto;
+   min-height: 0;
+   min-width: 0;
+
+   justify-content: center;
+   flex-direction: column;
+   align-items: stretch;
+   align-content: stretch;
+}
+
+.profileDropdownInnerText {
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+   font-size: 14px;
 }

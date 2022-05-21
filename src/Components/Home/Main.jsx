@@ -3,8 +3,10 @@ import './Main.css'
 import Stories from './Stories'
 import Post from './Post/Post'
 import Suggestion from './Suggestion'
+import { useUserAuth } from "../../Context/UserAuthContext";
 
 const Main = () => {
+   const { user } = useUserAuth();
 
 
 
@@ -13,7 +15,7 @@ const Main = () => {
    //  ________________________________________________________________________________________________
 
    return (
-      <div className="main page-center">
+      !user && <div className="main page-center">
          <div className="sliderContainer">
 
 

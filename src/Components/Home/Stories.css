@@ -57,7 +57,6 @@
    align-items: center;
 
    position: relative;
-   z-index: 100;
 }
 
 /* ********* Hide ScrollBar *********** */
@@ -72,27 +71,26 @@
    position: relative;
 }
 
-.arrowbtn {
-   cursor: pointer;
+.arrowbtn {   
    display: flex;
    flex-direction: column;
    justify-content: center;
-   right: 1%;
+   
    user-select: none;
+   cursor: pointer;
+
    position: absolute;
+
+   z-index: var(--z-index-2);
+   height: 45px;
+   width: 45px;
 }
 
 .arrowbtn:first-child {
    left: 0;
-   z-index: 1;
    background: url("https://static.cdninstagram.com/rsrc.php/v3/yO/r/mhNDSKlDQma.png") no-repeat -379px -128px;
-   height: 45px;
-   width: 45px;
 }
 .arrowbtn:last-child {
-   z-index: 1;
    right: 0;
    background: url("https://static.cdninstagram.com/rsrc.php/v3/yO/r/mhNDSKlDQma.png") no-repeat -244px -107px;
-   height: 45px;
-   width: 45px;
 }

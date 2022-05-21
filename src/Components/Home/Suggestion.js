@@ -1,6 +1,9 @@
 import React from 'react'
-
+import { useUserAuth } from "../../Context/UserAuthContext";
 const Suggestion = () => {
+
+   const { user } = useUserAuth();
+   
    return (
       <div className="suggestions">
          <div className="userSuggestionsContainer">
@@ -10,7 +13,7 @@ const Suggestion = () => {
                      <img src="propic.jpeg" alt="Profile Pic" />
                   </div>
                   <div className="profiledisc">
-                     <div className="userProfilename"><span>_khadija_5253</span></div>
+                     <div className="userProfilename"><span>{user.displayName}</span></div>
                      <div className="seconderyColor profilediscseconderyfont userProfilemutename "> <span>Khadija Daudivohra</span> </div>
                   </div>
                </div>
