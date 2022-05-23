@@ -81,7 +81,7 @@
 
    position: absolute;
 
-   z-index: var(--z-index-2);
+   z-index: 3;
    height: 45px;
    width: 45px;
 }

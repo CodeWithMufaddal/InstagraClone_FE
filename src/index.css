@@ -1,9 +1,137 @@
+@import url("./Root.css");
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fff;
+  color: #1c1e21;
+  direction: ltr;
+  line-height: 1.34;
+  margin: 0;
+  padding: 0;
+  unicode-bidi: embed;
+}
+
+.sp_jY02qVAhKr8 {
+  background-image: url("https://static.cdninstagram.com/rsrc.php/v3/yA/r/RBO0njy-_Rl.png");
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 72px;
+  width: 90px;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++++++++++++++++ */
+
+._a3gq article,
+._a3gq div,
+._a3gq footer,
+._a3gq header,
+._a3gq main,
+._a3gq nav,
+._a3gq section,
+._a3gq #react-root {
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+
+  flex-shrink: 0;
+
+  position: relative;
+}
+
+
+
+._a3gq div,
+._a3gq span,
+._a3gq applet,
+._a3gq object,
+._a3gq iframe,
+._a3gq h1,
+._a3gq h2,
+._a3gq h3,
+._a3gq h4,
+._a3gq h5,
+._a3gq h6,
+._a3gq p,
+._a3gq blockquote,
+._a3gq pre,
+._a3gq a,
+._a3gq abbr,
+._a3gq acronym,
+._a3gq address,
+._a3gq big,
+._a3gq cite,
+._a3gq code,
+._a3gq del,
+._a3gq dfn,
+._a3gq em,
+._a3gq img,
+._a3gq ins,
+._a3gq kbd,
+._a3gq q,
+._a3gq s,
+._a3gq samp,
+._a3gq small,
+._a3gq strike,
+._a3gq strong,
+._a3gq sub,
+._a3gq sup,
+._a3gq tt,
+._a3gq var,
+._a3gq b,
+._a3gq u,
+._a3gq i,
+._a3gq center,
+._a3gq dl,
+._a3gq dt,
+._a3gq dd,
+._a3gq ol,
+._a3gq ul,
+._a3gq li,
+._a3gq fieldset,
+._a3gq form,
+._a3gq label,
+._a3gq legend,
+._a3gq table,
+._a3gq caption,
+._a3gq tbody,
+._a3gq tfoot,
+._a3gq thead,
+._a3gq tr,
+._a3gq th,
+._a3gq td,
+._a3gq article,
+._a3gq aside,
+._a3gq canvas,
+._a3gq details,
+._a3gq embed,
+._a3gq figure,
+._a3gq figcaption,
+._a3gq footer,
+._a3gq header,
+._a3gq hgroup,
+._a3gq menu,
+._a3gq nav,
+._a3gq output,
+._a3gq ruby,
+._a3gq section,
+._a3gq summary,
+._a3gq time,
+._a3gq mark,
+._a3gq audio,
+._a3gq video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 html {
@@ -32,6 +160,19 @@ code {
   border: 1px solid;
 }
 
+
+
+body,
+button,
+input,
+label,
+select,
+td,
+textarea {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
 .d-flex {
   display: flex;
 }
@@ -44,20 +185,6 @@ code {
   display: none;
 }
 
-:root {
-  --secondery-color: #8e8e8e;
-  --main-black-color: #262626;
-
-  /* Z - Index Layers */
-
-  --z-index--1: -1;
-  --z-index-0: 0;
-  --z-index-1: 1;
-  --z-index-2: 2;
-  --z-index-3: 3;
-  --z-index-4: 4;
-}
-
 .seconderyColor {
   color: var(--secondery-color);
 }
@@ -66,89 +193,3 @@ a:active {
   opacity: 0.7;
 }
 
-._a3gq article,
-._a3gq div,
-._a3gq footer,
-._a3gq header,
-._a3gq main,
-._a3gq nav,
-._a3gq section,
-._a3gq #react-root {
-  display: flex;
-  flex-direction: column;
-
-  align-items: stretch;
-
-  flex-shrink: 0;
-
-  position: relative;
-}
-
-.basicbtn { 
-  
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: 0 0;
-  border: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 5px 9px;
-  text-align: center;
-  text-overflow: ellipsis;
-  text-transform: inherit;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: auto;
-}
-
-.dropdown-menu {
-  top: 140% !important;
-  left: -300% !important;
-  border: 0 !important;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.0975) !important;
-  z-index: var(--z-index-4) !important;
-  z-index: 55 !important;
-
-  transform-origin: top center;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 75ms linear, transform 38ms ease-out;
-  width: 230px;
-}
-
-.dropdown-menu::before {
-  content: "";
-
-  width: 14px;
-  height: 14px;
-
-  transform: rotate(45deg);
-
-  position: absolute;
-  top: -7.2px;
-  left: 186px;
-  right: 0;
-
-  background: #fff;
-  border: 1px solid #fff;
-  box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.0975);
-}
-
-.screenFocus {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  background: #000;
-  z-index: var(--z-index-3);
-  opacity: 0.3;
-}

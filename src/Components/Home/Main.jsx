@@ -8,6 +8,7 @@ import { useUserAuth } from "../../Context/UserAuthContext";
 const Main = () => {
    const { user } = useUserAuth();
 
+   document.title = 'Instagram Clone'
 
 
 
@@ -15,7 +16,7 @@ const Main = () => {
    //  ________________________________________________________________________________________________
 
    return (
-      !user && <div className="main page-center">
+      user && <div className="main page-center">
          <div className="sliderContainer">
 
 
