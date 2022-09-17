@@ -282,10 +282,9 @@
    color: #bb2d3b;
 }
 
-
 .FBLogIn {
-  display: flex;
-  justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 /* forgot Pass */
@@ -401,4 +400,37 @@
    line-height: 20px;
    margin: 0 40px 10px;
    text-align: center;
+}
+
+.activebtn {
+   background-color: #0095f6;
+   transition: all 0.3s ease-in-out;
+}
+
+.activebtn:active {
+   filter: brightness(0.9);
+}
+
+.alertmsg {
+   position: fixed;
+   top: 10px;
+   left: 10px;
+   animation: alert ease-in-out 3s;
+   transition: all 0.3s ease-in-out;
+   opacity: 0;
+}
+
+@keyframes alert {
+   0% {
+      opacity: 0;
+   }
+   10% {
+      opacity: 1;
+   }
+   80% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
 }

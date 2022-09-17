@@ -36,3 +36,7 @@
    height: 100%;
    width: 100%;
 } */
+
+.react-horizontal-scrolling-menu--wrapper {
+   border-radius: 8px;
+}

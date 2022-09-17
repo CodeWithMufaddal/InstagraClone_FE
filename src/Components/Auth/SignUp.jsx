@@ -1,25 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useUserAuth } from "../../Context/UserAuthContext";
 import "./Login-SignUp.css";
+import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { auth, db } from "../../firebase";
+import ErrorBox from "../Home/ErrorBox";
+import { useUserAuth } from "../../Context/UserAuthContext";
+
 
 const SignUp = () => {
-
+  
+  const { signUp, setProgress, googleSignIn } = useUserAuth();
+  let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [fullname, setFullName] = useState("");
   const [username, setUserName] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
-  const { signUp } = useUserAuth();
-  let navigate = useNavigate();
+  const noSpace = username.match(/^\S*$/)  ? true : false;
+  const ifquery = email === "" || fullname === "" || username === "" || password.length <= 5 || error !== "" || !noSpace;
+
+
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      setError("")
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [error])
 
   const handleSubmit = async (e) => {
+    setProgress(10)
     e.preventDefault();
+    setProgress(20)
     setError("");
+    setProgress(30)
     try {
-      await signUp(email, password, username, fullname);
+
+      const result = await signUp(email, password);
+      console.log("signup1", result)
+      await setDoc(doc(db, 'Users', result.user.uid),
+        {
+          uid: result.user.uid,
+          email: email,
+          fullname: fullname,
+          username: username,
+          password: password,
+          createdAt: Timestamp.fromDate(new Date()),
+          isOnline: true,
+        })
+      console.log("signup2", result)
+      setEmail("");
+      setFullName("");
+      setUserName("");
+      setPassword("");
+      setError("");
+      setProgress(100)
       navigate("/");
     } catch (err) {
+      setProgress(100)
       setError(err.message);
 
       console.log(err.message)
@@ -29,26 +67,43 @@ const SignUp = () => {
 
 
 
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    setProgress(10);
+
+    try {
+      setProgress(50);
+      const result = await googleSignIn();
+      console.log("User Data sign up ", result.user)
+      await setDoc(doc(db, 'Users', result.user.uid),
+        {
+          uid: result.user.uid,
+          email: result.user.email,
+          fullname: result.user.displayName,
+          photoURL: result.user.photoURL,
+          username: username,
+          password: password,
+          createdAt: result.user.metadata.creationTime,
+          lastLogin: result.user.metadata.lastSignInTime,
+          isOnline: true,
+        })
+
+      setProgress(100);
+      navigate("/home");
+    } catch (error) {
+      setProgress(100);
+      console.log(error.message);
+    }
+  };
 
 
 
 
   return <section className="LoginSection">
+    {error && <ErrorBox msg={error} />}
     <main className="mainLoginPage">
       <article className="pageCenter">
-        {/* <div className="loginAdImg">
-        <div className="loginAdImgInner">
-          {LoginSideImg.map((img, index) => {
-            <img
-              id="login-side-img"
-              className="loginImg"
-              key={index}
-              src={img}
-              alt
-            />;
-          })}
-        </div>
-      </div> */}
+
 
         <div className="Login">
           <div className="LoginContainer">
@@ -95,7 +150,7 @@ const SignUp = () => {
                   </div>
 
                   <div className="LogInContainer LoginbtnDiv">
-                    <button type="button" className="btn btn-danger basicbtn logInoption GoogleLogIn" >
+                    <button type="button" className="btn btn-danger basicbtn logInoption GoogleLogIn" onClick={handleGoogleSignIn} >
                       <span className="LoginGbtnImg"></span>
                       <span className="LoginGbtnText LoginbtnText">
                         Sign Up With Google
@@ -113,13 +168,12 @@ const SignUp = () => {
                   <div className="formInnerDiv ">
                     <div className="FormInputDiv">
                       <input
-                        aria-label="Mobile Number or email"
+                        aria-label="email"
                         aria-required="true"
                         autoCapitalize="off"
                         autoCorrect="off"
-                        maxLength="75"
                         name="username"
-                        type="text"
+                        type="email"
                         className=""
                         id="exampleInputEmail1"
                         placeholder=" email"
@@ -154,12 +208,16 @@ const SignUp = () => {
                         autoCapitalize="off"
                         autoCorrect="off"
                         maxLength="75"
-                        name="username"
+                        name="Username"
                         type="text"
                         className=""
                         id="exampleInputEmail1"
                         placeholder="Username"
-                        onChange={(e) => setUserName(e.target.value)}
+                        onChange={(e) => {
+                          setUserName(e.target.value)
+
+                          noSpace ? setError("") : setError("Username can't contain spaces")
+                        }}
                       />
                     </div>
                   </div>
@@ -168,7 +226,7 @@ const SignUp = () => {
                     <div className="FormInputDiv">
                       <input
                         type="password"
-                        minLength='5'
+                        minLength='6'
                         className=""
                         id="exampleInputPassword1"
                         placeholder="Password"
@@ -178,7 +236,7 @@ const SignUp = () => {
                   </div>
 
                   <div className="LogInContainer">
-                    <button type="submit" className="  LogInBtn basicbtn   " >
+                    <button type="submit" className={`  LogInBtn basicbtn  ${ifquery ? '' : 'activebtn'} `} disabled={ifquery} >
                       Sign Up
                     </button>
                   </div>

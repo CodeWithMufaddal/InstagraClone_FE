@@ -2,84 +2,90 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login-SignUp.css";
 import { useUserAuth } from "../../Context/UserAuthContext";
+import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { auth, db } from "../../firebase";
+import ErrorBox from "../Home/ErrorBox";
 
 
 
 const Login = () => {
-  const LoginSideImg = [
-    "https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png",
-    "https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png",
-    "https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png",
-    "https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png",
-  ];
-
-  const handleClicknext = (e) => {
-    let Class = (document.getElementById("login-side-img").className =
-      "loginImg-a");
-    console.log(Class);
-
-  };
-
 
   //   Fire Base Authentication
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { logIn, googleSignIn } = useUserAuth();
+  const { logIn, googleSignIn, setProgress, signUp } = useUserAuth();
   const navigate = useNavigate();
+  // const ifquery = ;
+
+  let ifquery = email === "" || password === "" || error !== "" ? true : false
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setError("")
+    }, 3000);
+  }, [error])
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setProgress(10);
     setError("");
+    setProgress(20);
     try {
+
+      setProgress(50);
       await logIn(email, password);
+      setProgress(100);
       navigate("/home");
     } catch (err) {
-      setError(err.message);
+      setProgress(100);
+      if (err.message) {
+        setError("Invalid Credentials Emali / Password ");
+      }
+      else {
+        setError(err.message);
+      }
+
     }
   };
 
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
+    setProgress(10);
+
     try {
-      await googleSignIn();
+      setProgress(50);
+      const GoogleLogIn = await googleSignIn();
+      console.log(GoogleLogIn.user.email, "at g login email");
+      console.log(GoogleLogIn.user.accessToken, "at login token");
+      // try {
+        await signUp(GoogleLogIn.user.email, GoogleLogIn.user.accessToken);
+      // } catch (error) {
+      //   await signUp(GoogleLogIn.user.email, GoogleLogIn.user.accessToken)
+      // }
+
+      setProgress(100);
       navigate("/home");
     } catch (error) {
-      console.log(error.message);
+      setProgress(100);
+      console.log("This is error msg", error);
     }
   };
 
-
-  // useEffect(() => {
-  //   const handleAutoplay = setInterval(handleClicknext, 3000);
-  //   return () => clearInterval(handleAutoplay);
-  // }, [handleClicknext]);
-
-
-
-
   return (
     <section className="LoginSection">
+      {error && <ErrorBox msg={error} />}
+
       <main className="mainLoginPage">
         <article className="pageCenter">
-          {/* <div className="loginAdImg">
-            <div className="loginAdImgInner">
-              {LoginSideImg.map((img, index) => {
-                <img
-                  id="login-side-img"
-                  className="loginImg"
-                  key={index}
-                  src={img}
-                  alt
-                />;
-              })}
-            </div>
-          </div> */}
 
           <div className="Login">
             <div className="LoginContainer">
-              {/* <div className="LoginMainPage"> */}
+
 
               <div className="TopIcon">
                 <div
@@ -116,7 +122,7 @@ const Login = () => {
                           autoCorrect="off"
                           maxLength="75"
                           name="username"
-                          type="text"
+                          type="email"
                           className=""
                           id="exampleInputEmail1"
                           placeholder="Phone number, username, or email"
@@ -138,7 +144,9 @@ const Login = () => {
                     </div>
 
                     <div className="LogInContainer">
-                      <button type="submit" className="  LogInBtn basicbtn   " disabled>
+                      <button type="submit" className={`LogInBtn basicbtn ${ifquery ? '' : 'activebtn'}`}
+                        disabled={ifquery}
+                      >
                         Log In
                       </button>
                     </div>

@@ -3,18 +3,19 @@ import { useUserAuth } from "../../Context/UserAuthContext";
 const Suggestion = () => {
 
    const { user } = useUserAuth();
-   
+   console.log("suggestion", user.photoURL)
    return (
       <div className="suggestions">
          <div className="userSuggestionsContainer">
             <div className="userProfileSuggestion">
                <div className="d-flex">
                   <div className="userProfileimg">
-                     <img src="propic.jpeg" alt="Profile Pic" />
+                     <img src={`${user.photoURL ? user.photoURL : "./propic.jpeg"}`} alt="Profile Pic" />
+
                   </div>
                   <div className="profiledisc">
-                     <div className="userProfilename"><span>{user.displayName}</span></div>
-                     <div className="seconderyColor profilediscseconderyfont userProfilemutename "> <span>Khadija Daudivohra</span> </div>
+                     <div className="userProfilename"><span>{user.DisplayName}</span></div>
+                     <div className="seconderyColor profilediscseconderyfont userProfilemutename "> <span>{`${user.email ? user.email : "TestEmail123@gmail.com"}`}</span> </div>
                   </div>
                </div>
                <a href="#" className="profilefollowlink" >

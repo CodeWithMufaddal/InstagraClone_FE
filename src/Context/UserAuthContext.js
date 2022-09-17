@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { updateDoc, doc } from "firebase/firestore";
+
 import {
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
@@ -9,21 +11,40 @@ import {
    signInWithPopup,
 } from "firebase/auth";
 
+
 const userAuthContext = createContext();
 
-export function UserAuthContextProvider({ children }) {
+function UserAuthContextProvider({ children }) {
    const [user, setUser] = useState({});
+   const [progress, setProgress] = useState(0);
+   const [loading, setLoading] = useState(true);
 
-   function logIn(email, password) {
-      return signInWithEmailAndPassword(auth, email, password);
+   const logIn = async (email, password) => {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      await updateDoc(doc(db, 'Users', auth.currentUser.uid), {
+         isOnline: true,
+      })
+      setUser(result);
+      return result;
    }
-   function signUp(email, password , username, fullname) {
-      // return createUserWithEmailAndPassword(auth, email, password, username, fullname );
-      
+
+   const signUp = async (email, password) => {
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      setUser(result)
+      return result;
+
    }
-   function logOut() {
-      return signOut(auth);
+
+   const logOut = async () => {
+      await updateDoc(doc(db, 'Users', auth.currentUser.uid), {
+         isOnline: false,
+      })
+      const result = await signOut(auth);
+      return result;
    }
+
+
+
    function googleSignIn() {
       const googleAuthProvider = new GoogleAuthProvider();
       return signInWithPopup(auth, googleAuthProvider);
@@ -31,24 +52,28 @@ export function UserAuthContextProvider({ children }) {
 
    useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-         console.log("Auth", currentuser);
          setUser(currentuser);
-      });
 
-      return () => {
-         unsubscribe();
-      };
-   }, []);
+      });
+      console.log("On auth state change", user);
+
+      // return () => {
+      //    unsubscribe();
+      // };
+   }, [user]);
+
 
    return (
       <userAuthContext.Provider
-         value={{ user, logIn, signUp, logOut, googleSignIn }}
+         value={{ user, setUser, logIn, signUp, logOut, googleSignIn, progress, setProgress, loading, setLoading }}
       >
          {children}
       </userAuthContext.Provider>
    );
 }
 
-export function useUserAuth() {
+function useUserAuth() {
    return useContext(userAuthContext);
 }
+
+export { useUserAuth, UserAuthContextProvider }

@@ -102,8 +102,8 @@
    display: block;
 }
 
-.profileSuggestionTitle a {
-   color: #000;
+.main .profileSuggestionTitle a {
+   color: #000 ;
    font-weight: 500;
    font-size: calc(0.4vw + 0.4rem);
 }
@@ -143,7 +143,7 @@
    font-size: 12px;
    line-height: 16px;
    margin: -2px 0 -3px;
-   color: #0095f6;
+   color: #0095f6 !important;
    display: inline-block;
    
    position: relative;

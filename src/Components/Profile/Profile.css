@@ -1,0 +1,128 @@
+.box {
+   display: block;
+   position: relative;
+   width: 100%;
+   flex: 1 0 0%;
+}
+._a3gq .boxcontainer {
+   flex-direction: row;
+   justify-content: center;
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   grid-gap: 28px;
+   overflow: hidden auto; 
+}
+
+._a3gq ._a995 {
+   background-color: rgb(var(--ig-secondary-background));
+}
+._a3gq ._a993 {
+   flex-grow: 1;
+   order: 4;
+}
+
+@media (min-width: 736px) {
+   ._a3gq ._aa_z {
+      padding: 30px 20px 0;
+   }
+}
+
+@media (min-width: 736px) {
+   ._a3gq ._aa_y {
+      box-sizing: content-box;
+      padding: 60px 20px 0;
+      width: calc(100% - 40px);
+   }
+}
+._a3gq ._aa_- {
+   margin-bottom: 0;
+}
+._a3gq ._aa_y {
+   flex-grow: 1;
+   margin: 0 auto 30px;
+   max-width: 935px;
+   width: 100%;
+}
+
+@media (min-width: 736px) {
+   ._a3gq ._aa_h {
+      margin-bottom: 44px;
+   }
+}
+
+._a3gq ._aa_h,
+._a3gq ._aa_i {
+   flex-direction: row;
+}
+
+._a3gq .profileimgA {
+   flex-basis: 0px;
+   flex-grow: 1;
+   margin-right: 30px;
+   flex-shrink: 1;
+}
+
+._a3gq .profileimgB {
+   height: calc(0.5 * 150px + 2px);
+   width: 77px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+._a3gq .profileimgC {
+   background-color: rgb(var(--ig-secondary-background));
+   border-radius: 50%;
+   box-sizing: border-box;
+   height: 100%;
+   margin: 0 auto;
+   overflow: hidden;
+   position: relative;
+   width: 100%;
+}
+._a3gq .profileimgD {
+   border: 0;
+   cursor: pointer;
+   height: 100%;
+   padding: 0;
+   width: 100%;
+}
+._a3gq .profileimgE {
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+._a3gq .profileinfo {
+   color: rgb(var(--ig-primary-text));
+   flex-shrink: 1;
+   min-width: 0;
+
+   flex-basis: 30px;
+   flex-grow: 2;
+}
+
+._a3gq .profileinfoA {
+   margin-bottom: 20px;
+
+   align-items: center;
+   flex-direction: row;
+   flex-shrink: 1;
+   min-width: 0;
+}
+
+._a3gq .profileinfoA1 {
+   color: rgb(var(--ig-primary-text));
+   font-weight: var(--font-weight-system-light);
+   font-size: var(--system-28-font-size);
+   line-height: var(--system-28-line-height);
+   margin: -5px 0 -6px;
+   font-family: var(--font-family-system);
+
+   display: block;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
